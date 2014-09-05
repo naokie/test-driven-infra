@@ -42,3 +42,8 @@ build:
         - script:
             name: Run vagrant destroy
             code: vagrant destroy --force
+        - sherzberg/slack-notify:
+            subdomain: naokie
+            token: $SLACK_TOKEN
+            channel: general
+
