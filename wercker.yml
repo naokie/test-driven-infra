@@ -35,8 +35,11 @@ build:
             name: Run vagrant up
             code: vagrant up --provider=digital_ocean
         - script:
-            name: Run rake spec
-            code: rake spec
+            name: Run rake spec:app
+            code: ROLE=app rspec spec/app/ntp_spec.rb
+        - script:
+            name: Run rake spec:proxy
+            code: ROLE=proxy rspec spec/proxy/nginx_spec.rb
 
     after-steps:
         - script:
