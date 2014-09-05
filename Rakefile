@@ -1,8 +1,12 @@
 require 'rake'
 require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = 'spec/*/*_spec.rb'
+task :spec => "spec:all"
+
+namespace :spec do
+	RSpec::Core::RakeTask.new(role.to_sym) do |t|
+		ENV["ROLE"] = role
+		t.pattern = 'spec/#{role}/*_spec.rb'
+	end
 end
 
-task :default => :spec
