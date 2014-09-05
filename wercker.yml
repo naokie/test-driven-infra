@@ -39,7 +39,7 @@ build:
             code: ROLE=app rspec spec/app/ntp_spec.rb
         - script:
             name: Run rake spec:proxy
-            code: ROLE=proxy rspec spec/proxy/ntp_spec.rb
+            code: ROLE=proxy rspec spec/proxy/nginx_spec.rb
 
     after-steps:
         - script:
